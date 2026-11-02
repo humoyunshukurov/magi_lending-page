@@ -4,6 +4,9 @@ export function Nav() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
         <span className="font-outfit font-extrabold text-lg tracking-tight shrink-0">MAGI</span>
         <nav className="hidden md:flex items-center gap-8 text-sm text-magi-secondary">
+          <a href="#desktop-app" className="hover:text-magi-primary transition-colors">
+            Anti-cheating
+          </a>
           <a href="#how-it-works" className="hover:text-magi-primary transition-colors">
             How it works
           </a>

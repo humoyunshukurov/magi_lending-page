@@ -1,6 +1,7 @@
 import { Nav } from "./components/Nav";
 import { Hero } from "./components/Hero";
 import { DossierDemo } from "./components/DossierDemo";
+import { AntiCheat } from "./components/AntiCheat";
 import { HowItWorks } from "./components/HowItWorks";
 import { Features } from "./components/Features";
 import { Institutions } from "./components/Institutions";
@@ -14,6 +15,7 @@ function App() {
       <main className="flex-grow">
         <Hero />
         <DossierDemo />
+        <AntiCheat />
         <HowItWorks />
         <Features />
         <Institutions />
