@@ -7,6 +7,9 @@ export function Nav() {
           <a href="#desktop-app" className="hover:text-magi-primary transition-colors">
             Anti-cheating
           </a>
+          <a href="#inside" className="hover:text-magi-primary transition-colors">
+            Product
+          </a>
           <a href="#how-it-works" className="hover:text-magi-primary transition-colors">
             How it works
           </a>

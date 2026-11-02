@@ -1,4 +1,3 @@
-import { CheatScene } from "./CheatScene";
 import { Reveal } from "./Reveal";
 
 const PROTECTIONS = [
@@ -44,15 +43,11 @@ export function AntiCheat() {
         </h2>
         <p className="mt-5 text-base text-magi-secondary font-light leading-relaxed">
           Most LMS and ERP systems collect an answer and hope for the best. MAGI runs the exam inside its own locked
-          desktop app - watch what happens when a student tries the usual tricks.
+          desktop app - it blocks the usual ways to cheat, and anything it can't block, it records.
         </p>
       </Reveal>
 
-      <Reveal delay={150} className="mt-12">
-        <CheatScene />
-      </Reveal>
-
-      <div className="mt-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {PROTECTIONS.map((p, i) => (
           <Reveal key={p.title} delay={i * 80}>
             <div className="group glass-card p-6 h-full transition-all duration-300 hover:border-magi-primary hover:-translate-y-1 hover:shadow-[4px_4px_0_#0a0a0a]">

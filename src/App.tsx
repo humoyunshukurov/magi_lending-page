@@ -2,6 +2,7 @@ import { Nav } from "./components/Nav";
 import { Hero } from "./components/Hero";
 import { DossierDemo } from "./components/DossierDemo";
 import { AntiCheat } from "./components/AntiCheat";
+import { Screens } from "./components/Screens";
 import { HowItWorks } from "./components/HowItWorks";
 import { Features } from "./components/Features";
 import { Institutions } from "./components/Institutions";
@@ -16,6 +17,7 @@ function App() {
         <Hero />
         <DossierDemo />
         <AntiCheat />
+        <Screens />
         <HowItWorks />
         <Features />
         <Institutions />
