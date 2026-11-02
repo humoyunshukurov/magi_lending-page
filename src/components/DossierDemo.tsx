@@ -15,9 +15,9 @@ const METRICS: Array<{ label: string; value: string }> = [
 
 export function DossierDemo() {
   return (
-    <section className="max-w-3xl mx-auto px-6 pb-20">
+    <section className="max-w-4xl mx-auto px-4 sm:px-6 pb-20">
       <div className="glass-card overflow-hidden">
-        <div className="flex items-center justify-between px-6 pt-5 text-xs text-magi-secondary">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 px-4 sm:px-6 pt-5 text-xs text-magi-secondary">
           <span>Dossier · ECON 201 · Midterm · Student 40219</span>
           <span className="flex items-center gap-1.5 text-magi-success font-medium">
             <span className="w-1.5 h-1.5 rounded-full bg-magi-success" />
@@ -25,7 +25,7 @@ export function DossierDemo() {
           </span>
         </div>
 
-        <div className="px-6 py-5 grid grid-cols-1 sm:grid-cols-3 gap-6">
+        <div className="px-4 sm:px-6 py-5 grid grid-cols-1 sm:grid-cols-3 gap-6">
           <div className="sm:col-span-2 space-y-3">
             <p className="text-sm font-bold text-magi-primary">Question 2 - Explain price elasticity of demand.</p>
             <p className="text-sm text-magi-secondary font-light leading-relaxed">
