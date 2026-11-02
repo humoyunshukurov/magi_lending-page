@@ -75,11 +75,135 @@ body {
 
 @keyframes ping-soft {
   from {
-    box-shadow: 0 0 0 0 rgba(22, 163, 74, 0.45);
+    box-shadow: 0 0 0 0 rgba(10, 10, 10, 0.35);
   }
   to {
-    box-shadow: 0 0 0 7px rgba(22, 163, 74, 0);
+    box-shadow: 0 0 0 7px rgba(10, 10, 10, 0);
   }
+}
+
+@keyframes ping-mono {
+  from {
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+  }
+  to {
+    box-shadow: 0 0 0 5px rgba(255, 255, 255, 0);
+  }
+}
+
+@keyframes stamp-in {
+  0% {
+    opacity: 0;
+    transform: rotate(-4deg) scale(2.2);
+  }
+  55% {
+    opacity: 1;
+    transform: rotate(-4deg) scale(0.92);
+  }
+  75% {
+    transform: rotate(-4deg) scale(1.04);
+  }
+  100% {
+    opacity: 1;
+    transform: rotate(-4deg) scale(1);
+  }
+}
+
+@keyframes flash {
+  from {
+    opacity: 0.95;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes key-press {
+  0%,
+  100% {
+    transform: translateY(0);
+    box-shadow: 0 3px 0 #000;
+  }
+  40% {
+    transform: translateY(3px);
+    box-shadow: 0 0 0 #000;
+  }
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  20% {
+    transform: translateX(-7px);
+  }
+  40% {
+    transform: translateX(7px);
+  }
+  60% {
+    transform: translateX(-4px);
+  }
+  80% {
+    transform: translateX(4px);
+  }
+}
+
+@keyframes drop-in {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes progress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes scanline {
+  from {
+    top: 0;
+  }
+  to {
+    top: 100%;
+  }
+}
+
+.stamp-in {
+  animation: stamp-in 0.45s cubic-bezier(0.2, 0.9, 0.3, 1.2) both;
+}
+.flash {
+  animation: flash 0.6s ease-out both;
+}
+.key-press {
+  display: inline-block;
+  animation: key-press 0.5s ease both;
+}
+.shake {
+  animation: shake 0.45s ease both;
+}
+.drop-in {
+  animation: drop-in 0.35s ease both;
+}
+.progress {
+  animation-name: progress;
+  animation-timing-function: linear;
+  animation-fill-mode: both;
+}
+.scanline {
+  animation: scanline 1.2s linear infinite;
+}
+.ping-mono {
+  animation: ping-mono 1.4s ease-out infinite;
 }
 
 .fade-up {

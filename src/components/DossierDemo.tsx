@@ -60,9 +60,9 @@ export function DossierDemo() {
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 px-4 sm:px-6 pt-5 text-xs text-magi-secondary">
           <span>Dossier · ECON 201 · Midterm · Student 40219</span>
           <span
-            className={`flex items-center gap-1.5 font-medium transition-colors duration-500 ${done ? "text-magi-success" : "text-magi-secondary"}`}
+            className={`flex items-center gap-1.5 font-medium transition-colors duration-500 ${done ? "text-magi-primary" : "text-magi-secondary"}`}
           >
-            <span className={`w-1.5 h-1.5 rounded-full ${done ? "bg-magi-success ping-soft" : "bg-magi-border"}`} />
+            <span className={`w-1.5 h-1.5 rounded-full ${done ? "bg-magi-primary ping-soft" : "bg-magi-border"}`} />
             {done ? "Log verified" : "Recording…"}
           </span>
         </div>

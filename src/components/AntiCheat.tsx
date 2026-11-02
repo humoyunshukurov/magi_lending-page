@@ -1,34 +1,5 @@
-import { useEffect, useState } from "react";
-import { reducedMotion, useInView } from "../useInView";
+import { CheatScene } from "./CheatScene";
 import { Reveal } from "./Reveal";
-
-type Kind = "ok" | "block" | "flag";
-
-const EVENTS: Array<{ t: string; kind: Kind; text: string }> = [
-  { t: "09:02:14", kind: "ok", text: "ID number matched · face verified against reference photo" },
-  { t: "09:02:15", kind: "ok", text: "Locked to full screen · 1 display connected" },
-  { t: "09:14:37", kind: "block", text: "Paste from outside the exam blocked · 214 characters" },
-  { t: "09:21:02", kind: "block", text: "Developer tools shortcut blocked · Ctrl+Shift+I" },
-  { t: "09:26:48", kind: "flag", text: "Phone detected in camera frame · photo saved" },
-  { t: "09:33:55", kind: "flag", text: "AnyDesk started during the exam · flagged" },
-  { t: "09:40:19", kind: "flag", text: "Second person in camera frame · photo saved" },
-  { t: "09:44:02", kind: "ok", text: "Submitted · log hash chain verified" },
-];
-
-const DOT: Record<Kind, string> = {
-  ok: "bg-magi-success",
-  block: "bg-magi-primary",
-  flag: "bg-red-600",
-};
-
-const LABEL: Record<Kind, string> = {
-  ok: "OK",
-  block: "BLOCKED",
-  flag: "FLAGGED",
-};
-
-const STEP_MS = 1100;
-const HOLD_MS = 3500;
 
 const PROTECTIONS = [
   {
@@ -63,91 +34,41 @@ const PROTECTIONS = [
   },
 ];
 
-function SessionLog() {
-  const [ref, inView] = useInView<HTMLDivElement>(0.3);
-  const [shown, setShown] = useState(0);
-
-  useEffect(() => {
-    if (!inView) return;
-    if (reducedMotion()) {
-      setShown(EVENTS.length);
-      return;
-    }
-    let timer: ReturnType<typeof setTimeout>;
-    const next = (n: number) => {
-      if (n > EVENTS.length) {
-        timer = setTimeout(() => {
-          setShown(0);
-          next(1);
-        }, HOLD_MS);
-        return;
-      }
-      setShown(n);
-      timer = setTimeout(() => next(n + 1), STEP_MS);
-    };
-    next(1);
-    return () => clearTimeout(timer);
-  }, [inView]);
-
-  return (
-    <div ref={ref} className="glass-card overflow-hidden">
-      <div className="flex items-center justify-between px-5 py-3 border-b border-magi-border/60 text-xs">
-        <span className="font-semibold text-magi-primary">Session log · Final exam · Student 40219</span>
-        <span className="flex items-center gap-1.5 text-magi-secondary">
-          <span className="w-1.5 h-1.5 rounded-full bg-red-600 ping-soft" />
-          Live
-        </span>
-      </div>
-      <ul className="px-5 py-4 space-y-2.5 font-mono text-[12px] sm:text-xs min-h-[17rem]">
-        {EVENTS.slice(0, shown).map((e) => (
-          <li key={e.t} className="log-in flex items-start gap-3">
-            <span className="text-magi-secondary shrink-0 tabular-nums">{e.t}</span>
-            <span className={`mt-1.5 w-1.5 h-1.5 rounded-full shrink-0 ${DOT[e.kind]}`} />
-            <span className="text-magi-primary">
-              <span className="font-semibold text-magi-secondary mr-1.5">{LABEL[e.kind]}</span>
-              {e.text}
-            </span>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-}
-
 export function AntiCheat() {
   return (
     <section id="desktop-app" className="max-w-6xl mx-auto px-6 py-20 border-t border-magi-border">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-        <Reveal>
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-magi-secondary mb-4">The desktop app</p>
-          <h2 className="text-3xl sm:text-4xl font-bold font-outfit text-magi-primary tracking-tight leading-tight">
-            An exam room, not a browser tab.
-          </h2>
-          <p className="mt-5 text-base text-magi-secondary font-light leading-relaxed max-w-lg">
-            Most LMS and ERP systems collect an answer and hope for the best. MAGI runs the exam inside its own locked
-            desktop app - it blocks the usual ways to cheat, and anything it can't block, it records.
-          </p>
-        </Reveal>
-        <Reveal delay={150}>
-          <SessionLog />
-        </Reveal>
-      </div>
+      <Reveal className="max-w-2xl">
+        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-magi-secondary mb-4">The desktop app</p>
+        <h2 className="text-3xl sm:text-5xl font-bold font-outfit text-magi-primary tracking-tight leading-tight">
+          An exam room, not a browser tab.
+        </h2>
+        <p className="mt-5 text-base text-magi-secondary font-light leading-relaxed">
+          Most LMS and ERP systems collect an answer and hope for the best. MAGI runs the exam inside its own locked
+          desktop app - watch what happens when a student tries the usual tricks.
+        </p>
+      </Reveal>
 
-      <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <Reveal delay={150} className="mt-12">
+        <CheatScene />
+      </Reveal>
+
+      <div className="mt-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {PROTECTIONS.map((p, i) => (
           <Reveal key={p.title} delay={i * 80}>
-            <div className="glass-card p-6 h-full transition-colors hover:border-magi-primary">
-              <svg
-                className="w-5 h-5 text-magi-primary mb-4"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.6"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                viewBox="0 0 24 24"
-              >
-                <path d={p.icon} />
-              </svg>
+            <div className="group glass-card p-6 h-full transition-all duration-300 hover:border-magi-primary hover:-translate-y-1 hover:shadow-[4px_4px_0_#0a0a0a]">
+              <span className="inline-flex w-10 h-10 items-center justify-center rounded-lg border border-magi-border mb-4 transition-colors group-hover:bg-magi-primary group-hover:text-white group-hover:border-magi-primary">
+                <svg
+                  className="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.6"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  viewBox="0 0 24 24"
+                >
+                  <path d={p.icon} />
+                </svg>
+              </span>
               <h3 className="text-base font-bold text-magi-primary font-outfit mb-1.5">{p.title}</h3>
               <p className="text-sm text-magi-secondary font-light leading-relaxed">{p.body}</p>
             </div>
