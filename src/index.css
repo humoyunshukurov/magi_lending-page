@@ -1,0 +1,32 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --color-magi-white: #ffffff;
+  --color-magi-surface: #f5f5f5;
+  --color-magi-border: #c7c7c7;
+  --color-magi-primary: #0a0a0a;
+  --color-magi-secondary: #6b6b6b;
+  --color-magi-accent: #1a1a1a;
+  --color-magi-hover: #333333;
+  --color-magi-success: #16a34a;
+
+  --font-outfit: "Outfit", system-ui, sans-serif;
+  --font-inter: "Inter", system-ui, sans-serif;
+}
+
+body {
+  background: var(--color-magi-white);
+  color: var(--color-magi-primary);
+  font-family: var(--font-inter);
+  -webkit-font-smoothing: antialiased;
+}
+
+@layer utilities {
+  .glass-card {
+    background: #ffffff;
+    border: 1px solid #e5e5e5;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    border-radius: 0.5rem;
+  }
+}
