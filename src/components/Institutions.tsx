@@ -7,7 +7,7 @@ const POINTS = [
 
 export function Institutions() {
   return (
-    <section id="institutions" className="max-w-5xl mx-auto px-6 py-20 border-t border-magi-border">
+    <section id="institutions" className="max-w-6xl mx-auto px-6 py-20 border-t border-magi-border">
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-12 items-start">
         <div>
           <h2 className="text-3xl font-bold font-outfit text-magi-primary tracking-wide mb-4">Built for institutions</h2>

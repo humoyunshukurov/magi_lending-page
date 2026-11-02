@@ -15,8 +15,8 @@ const METRICS: Array<{ label: string; value: string }> = [
 
 export function DossierDemo() {
   return (
-    <section className="max-w-4xl mx-auto px-4 sm:px-6 pb-20">
-      <div className="glass-card overflow-hidden">
+    <section className="max-w-6xl mx-auto px-4 sm:px-6 pb-24">
+      <div className="max-w-4xl mx-auto glass-card overflow-hidden">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 px-4 sm:px-6 pt-5 text-xs text-magi-secondary">
           <span>Dossier · ECON 201 · Midterm · Student 40219</span>
           <span className="flex items-center gap-1.5 text-magi-success font-medium">

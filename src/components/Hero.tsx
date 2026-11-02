@@ -1,6 +1,6 @@
 export function Hero() {
   return (
-    <section className="max-w-4xl mx-auto px-6 pt-14 sm:pt-20 pb-10 text-center">
+    <section className="max-w-6xl mx-auto px-6 pt-14 sm:pt-20 pb-10 text-center">
       <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold font-outfit tracking-tight text-magi-primary leading-tight">
         Academic Integrity, Proven by Process.
       </h1>

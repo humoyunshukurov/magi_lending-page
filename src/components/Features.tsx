@@ -7,7 +7,7 @@ const FEATURES = [
 
 export function Features() {
   return (
-    <section className="max-w-5xl mx-auto px-6 py-20 border-t border-magi-border">
+    <section className="max-w-6xl mx-auto px-6 py-20 border-t border-magi-border">
       <h2 className="text-3xl font-bold font-outfit text-magi-primary tracking-wide mb-12">Why it matters</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
         {FEATURES.map((f) => (
