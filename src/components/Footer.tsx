@@ -1,17 +1,60 @@
+import { DIRECTOR, DOWNLOAD, STUDENT_PORTAL } from "../links";
+
+const COLUMNS = [
+  {
+    title: "Product",
+    links: [
+      { href: "#desktop-app", label: "Anti-cheating" },
+      { href: "#inside", label: "Inside MAGI" },
+      { href: "#how-it-works", label: "How it works" },
+    ],
+  },
+  {
+    title: "Sign in",
+    links: [
+      { href: `${STUDENT_PORTAL}/login`, label: "Student portal" },
+      { href: `${DIRECTOR}/login`, label: "MAGI Director" },
+      { href: DOWNLOAD, label: "Download the app" },
+    ],
+  },
+  {
+    title: "Institutions",
+    links: [
+      { href: "#institutions", label: "For institutions" },
+      { href: "#demo", label: "Request a demo" },
+    ],
+  },
+];
+
 export function Footer() {
   return (
-    <footer className="border-t border-magi-border py-8">
-      <div className="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-        <span className="font-outfit font-extrabold text-sm tracking-tight">MAGI</span>
-        <nav className="flex items-center gap-6 text-xs text-magi-secondary">
-          <a href="#how-it-works" className="hover:text-magi-primary transition-colors">
-            How it works
-          </a>
-          <a href="#institutions" className="hover:text-magi-primary transition-colors">
-            For institutions
-          </a>
-        </nav>
-        <span className="text-xs text-magi-secondary font-light">&copy; {new Date().getFullYear()} MAGI</span>
+    <footer className="border-t border-magi-border">
+      <div className="max-w-6xl mx-auto px-6 py-12 grid grid-cols-2 sm:grid-cols-4 gap-8">
+        <div className="col-span-2 sm:col-span-1">
+          <span className="font-outfit font-extrabold text-lg tracking-tight">MAGI</span>
+          <p className="mt-2 text-xs text-magi-secondary font-light leading-relaxed max-w-[14rem]">
+            Academic integrity, proven by process.
+          </p>
+        </div>
+        {COLUMNS.map((c) => (
+          <div key={c.title}>
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-magi-secondary mb-3">{c.title}</p>
+            <ul className="space-y-2">
+              {c.links.map((l) => (
+                <li key={l.label}>
+                  <a href={l.href} className="text-sm text-magi-primary hover:underline">
+                    {l.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+      <div className="border-t border-magi-border">
+        <p className="max-w-6xl mx-auto px-6 py-5 text-xs text-magi-secondary font-light">
+          &copy; {new Date().getFullYear()} MAGI University
+        </p>
       </div>
     </footer>
   );
