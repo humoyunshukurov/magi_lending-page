@@ -29,15 +29,15 @@ const SHOTS: Shot[] = [
   {
     src: "/screens/admin-forensics.png",
     width: 2240,
-    height: 982,
+    height: 2194,
     app: "MAGI Director · Writing forensics",
     eyebrow: "How the answer was written",
     title: "Not just what the answer says - how it got there.",
     body: "Every answer comes with the trail of how it was typed. A real answer has corrections, pauses and a rhythm; a pasted or dictated one doesn't.",
     points: [
-      "Characters typed versus pasted, corrections and freezes",
-      "A process-strength score built from volume, rhythm and edit rate",
-      "An AI-probability estimate for the text itself",
+      "Volume, rhythm and editing scored separately, each with a verdict",
+      "Raw counts: typed versus pasted, paste ratio, corrections, freezes",
+      "Total session time against active typing time, plus an AI-probability estimate",
     ],
   },
   {

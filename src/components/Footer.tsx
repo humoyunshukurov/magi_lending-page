@@ -1,4 +1,4 @@
-import { DIRECTOR, DOWNLOAD, STUDENT_PORTAL } from "../links";
+import { DOWNLOAD } from "../links";
 
 const COLUMNS = [
   {
@@ -7,13 +7,6 @@ const COLUMNS = [
       { href: "#desktop-app", label: "Anti-cheating" },
       { href: "#inside", label: "Inside MAGI" },
       { href: "#how-it-works", label: "How it works" },
-    ],
-  },
-  {
-    title: "Sign in",
-    links: [
-      { href: `${STUDENT_PORTAL}/login`, label: "Student portal" },
-      { href: `${DIRECTOR}/login`, label: "MAGI Director" },
       { href: DOWNLOAD, label: "Download the app" },
     ],
   },
@@ -29,7 +22,7 @@ const COLUMNS = [
 export function Footer() {
   return (
     <footer className="border-t border-magi-border">
-      <div className="max-w-6xl mx-auto px-6 py-12 grid grid-cols-2 sm:grid-cols-4 gap-8">
+      <div className="max-w-6xl mx-auto px-6 py-12 grid grid-cols-2 sm:grid-cols-3 gap-8">
         <div className="col-span-2 sm:col-span-1">
           <span className="font-outfit font-extrabold text-lg tracking-tight">MAGI</span>
           <p className="mt-2 text-xs text-magi-secondary font-light leading-relaxed max-w-[14rem]">
